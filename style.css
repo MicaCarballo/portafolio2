@@ -12,6 +12,7 @@
 
 
 
+
 }
 
 html {
@@ -30,7 +31,7 @@ body {
 
 
 .home {
-    background-image: url(./stonebg.jpg);
+    background-image: url("");
     overflow: hidden;
     height: 100vh;
     padding-top: 10rem;
@@ -216,10 +217,10 @@ p {
     bottom: 0;
 
     max-width: 100%;
-    animation-delay: 0s;
+    
 
     /*animation: animacion calc(4s * var(--i)) 8s linear infinite;*/
-    animation: fadeUp 5s ease 0s backwards infinite;
+   
 
 }
 
@@ -236,7 +237,7 @@ p {
     }
 }
 
-@keyframes animacion {
+@keyframes animation {
     0% {
         transform: translateX(-100%);
     }
@@ -275,9 +276,9 @@ p {
     align-items: center;
     flex-wrap: wrap;
     height: 100%;
-
+    margin-bottom: 5rem;
     overflow: auto;
-
+    
 
 
 
@@ -297,6 +298,9 @@ p {
     flex-direction: column;
     justify-content: center;
     border: 1px solid rgba(255, 255, 255, 0.5);
+    
+  
+    
 
 
 
@@ -1077,7 +1081,11 @@ input.button:hover {
     margin: 0.5rem;
     font-size: 4rem;
 }
-
+form{
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+}
 .navbar {
     display: flex;
     justify-content: center;
@@ -1090,6 +1098,11 @@ input.button:hover {
     width: 100%;
     background-color: white;
     transition: 0.5s ease-in-out;
+    z-index: 100;
+    background-color: white;
+    
+   
+    
 
 }
 
@@ -1231,8 +1244,9 @@ input.button:hover {
     .navbar {
         flex-direction: column;
         align-items: center;
-        height: 20vh;
-        position: relative;
+        height: 15vh;
+        position: fixed;
+       
 
     }
 
@@ -1268,4 +1282,62 @@ input.button:hover {
         margin: 0;
         font-size: 3rem;
     }
+}
+
+.hidden{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+
+
+.see-clouds{
+   
+    animation: fadeUp 7s ease 0s backwards infinite;
+    
+  
+}
+.notshow{
+    opacity: 0;
+    -moz-transition: all 1200ms ease-out;
+    -webkit-transition: all 1200ms ease-out;
+    -o-transition: all 1200ms ease-out;
+    transition: all 1200ms ease-out;
+    -moz-transform: translate3d(0px, 400px, 0px);
+    -webkit-transform: translate3d(0px, 400px, 0px);
+    -o-transform: translate(0px, 400px);
+    -ms-transform: translate(0px, 400px);
+    transform: translate3d(0px, 400, 0px);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+
+
+.second{
+    transition-delay:200ms;
+}
+
+.third{
+    transition-delay: 400ms;
+}
+
+.dark-mode{
+    filter: invert(100%);
+    
+};
+
+ 
+.more-work{
+    font-size: 2rem;
+    color: white;
+    font-weight: 500;
 }

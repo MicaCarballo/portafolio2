@@ -15,115 +15,101 @@ iconmenu.addEventListener('click', function(){
     iconmenu.classList.toggle('towhite');
 });
 
-const canvas = document.getElementById('canvas1');
-const ctx = canvas.getContext('2d');
-
-canvas.width = 1000;
-canvas.height = window.innerHeight/2;
-
-let particleArray = [];
-let adjustY =-10;
-let adjustX = 0;
-
-// handle mouse
-const mouse ={
-    x:null,
-    y:null,
-    radius:120,
-}
-
-window.addEventListener('mousemove', function(event){
-mouse.x = event.x;
-mouse.y = event.y;
-
-
-
+const observer = new IntersectionObserver((entries)=> {
+    entries.forEach((entry)=>{
+        console.log(entry)
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show')
+        }
+    })
 })
-ctx.fillStyle = 'beige';
-ctx.font = '1rem Sans';
-ctx.shadowOffsetX = '2';
-ctx.shadowOffsetY = '2';
-ctx.shadowBlur = '2';
- ;
-
-ctx.fillText('Mica Carballo',3,30);
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el)=> observer.observe(el));
 
 
 
 
 
 
-const textCoordinates = ctx.getImageData(0,0,100,100);
-
-class Particle{
-    constructor(x,y){
-         this.x = x;
-         this.y = y;
-         this.size = 3;
-         this.baseX =this.x;
-         this.baseY = this.y;
-         this.density = (Math.random() * 40) + 5;
-    }
-    draw(){
-        ctx.fillStyle = 'white';
-        ctx.beginPath();
-        ctx.arc(this.x,this.y,this.size,0,Math.PI * 2);
-        ctx.closePath();
-        ctx.fill();
-    }
-    update(){
-       let dx = mouse.x - this.x;
-       let dy = mouse.y - this.y;
-       let distance = Math.sqrt(dx * dx +  dy * dy);
-       let forceDirectionX = dx / distance;
-       let forceDirectionY = dy / distance;
-       let maxDistance = mouse.radius;
-       let force = (maxDistance - distance) / maxDistance;
-       let directionX = forceDirectionX * force * this.density;
-       let directionY = forceDirectionY * force * this.density;
-
-       if(distance < mouse.radius){
-        this.x -= directionX;
-        this.y -= directionY;
-       }else{
-        if(this.x !== this.baseX){
-          let dx = this.x - this.baseX;
-          this.x -= dx/5;
+const observerClouds = new IntersectionObserver((entries)=> {
+    entries.forEach((entry)=>{
+        console.log(entry)
+        if(entry.isIntersecting){
+            entry.target.classList.add('see-clouds');
+        } else {
+            entry.target.classList.remove('see-clouds')
         }
-        if(this.y !== this.baseY){
-            let dy = this.y - this.baseY;
-            this.y -= dy/5;
-        }
-       }
-    }
+    })
+})
+const hiddenClouds = document.querySelectorAll('.notshow');
+
+hiddenClouds.forEach((el)=> observer.observe(el));
+
+const job = document.querySelector(".job");
+const aboutMe = document.querySelector(".about-me");
+const skillsTitle = document.querySelector(".skills-title");
+const projectsTitle = document.querySelector(".projects-title");
+const project1Title = document.querySelector(".project1-title");
+const project2Title = document.querySelector(".project2-title");
+const project3Title = document.querySelector(".project3-title");
+const homeNav = document.querySelector(".home-nav");
+const skillsNav = document.querySelector(".skills-nav");
+const workNav =document.querySelector(".work-nav");
+const contactNav = document.querySelector(".contact-nav");
+const resume = document.querySelector(".resume-nav");
+
+const buttonEsp =  document.querySelector(".espBtn");
+const buttonEng = document.querySelector(".engBtn");
+const contactTitle = document.querySelector(".contact-title");
+const contactName = document.querySelector(".contact-name");
+const contactSubject = document.querySelector(".contact-subject");
+const contactEmail = document.querySelector(".contact-email");
+const contactBtn = document.querySelector(".contact-button");
+const moreWork = document.querySelector(".more-work")
+const englishHtml = document.body.parentElement.innerHTML;
+
+
+buttonEsp.addEventListener("click", function() {
+ 
+    job.innerHTML = "desarrolladora web";
+    aboutMe.innerHTML = "mi descp en español ahora";
+    skillsTitle.innerHTML = "En lo que me destaco";
+    projectsTitle.innerHTML = "mis proyectos";
+    project1Title.innerHTML = "nombre del proyecto";
+    project2Title.innerHTML = "weather app";
+    project3Title.innerHTML = "y otro proyecto supongo";
+    homeNav.innerHTML = "inicio";
+    skillsNav.innerHTML = "lenguajes";
+    workNav.innerHTML = "proyectos";
+    contactNav.innerHTML = "contacto";
+    resume.innerHTML = "curriculum";
+    contactTitle.innerHTML = "contactame";
+    contactName.innerHTML = "nombre";
+    contactSubject.innerHTML = "asunto";
+    contactBtn.value = "enviar";
+    moreWork.innerHTML = "ver mas proyectos"
+
+});
+  
+buttonEng.addEventListener("click", function(){
+    job.innerHTML = "web developer";
+    aboutMe.innerHTML = "my desc in english";
+    skillsTitle.innerHTML = "what im good at";
+    projectsTitle.innerHTML = "My Work";
+    project1Title.innerHTML = "title";
+    project2Title.innerHTML = "weather app";
+    project3Title.innerHTML = "somehing else";
+    homeNav.innerHTML = "home";
+    skillsNav.innerHTML = "skills";
+    workNav.innerHTML = "my work";
+    contactNav.innerHTML = "contact";
+    resume.innerHTML = "resume";
+    contactBtn.value = "submit";
+    contactTitle.innerHTML = "lets get in touch";
+    contactName.innerHTML = "name";
+    contactSubject.innerHTML = "subject";
+    moreWork.innerHTML = "see more of my work"
 }
-
-function init(){
-    particleArray =[];
- for(let y = 0, y2 = textCoordinates.height; y < y2; y++){
-    for (let x =0, x2 = textCoordinates.width; x < x2; x++){
-        if(textCoordinates.data[(y * 4 * textCoordinates.width)+(x*4) + 3] > 128){
-            let positionX = x + adjustX;
-            let positionY = y + adjustY;
-            particleArray.push( new Particle(positionX * 10, positionY * 10));
-
-        }
-    }
- }
-
-   
-}
-init();
-console.log(particleArray);
-
-function animate(){
-    ctx.clearRect(0,0, canvas.width, canvas.height);
-    for(let i=0; i < particleArray.length; i++){
-        particleArray[i].draw();
-        particleArray[i].update();
-    }
-    requestAnimationFrame(animate);
-}
-animate();
-
-
+)
