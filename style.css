@@ -288,9 +288,9 @@ p {
 
 .card {
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+   
     width: 19rem;
-    max-height: fit-content;
+    min-height: fit-content;
     padding: 1rem;
     margin: 0.5rem;
     border-radius: 12px;
@@ -318,13 +318,15 @@ p {
 
 .card-image {
 
-    height: 200px;
+    height: 150px;
     margin-bottom: 1rem;
     background-size: contain;
-    border-radius: 12px 12px 0px 0px;
+    
+    overflow: hidden;
 
 
 }
+
 
 .card h2 {
     padding: 1rem;
@@ -362,26 +364,28 @@ p {
 }
 
 .card-1 {
-    border-radius: 25px;
+   
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(./webexamp.gif);
+    background-image: url(./weatherApp.jpg);
+    
 
 }
 
 .card-2 {
-    border-radius: 25px;
+   
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(./weatherApp.gif);
+    background-image: url(./redSocialApp.jpg);
 
 }
 
 .card-3 {
-    border-radius: 25px;
+   
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(./webexamp.gif);
+    background-image: url(./PokedexApp.jpg);
+    
 
 
 }
@@ -1239,6 +1243,9 @@ form{
 
 
 
+    }
+    .navbar button{
+        display: none;
     }
 
     .navbar {

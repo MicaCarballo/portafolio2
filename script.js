@@ -74,7 +74,7 @@ const englishHtml = document.body.parentElement.innerHTML;
 buttonEsp.addEventListener("click", function() {
  
     job.innerHTML = "desarrolladora web";
-    aboutMe.innerHTML = "mi descp en español ahora";
+    aboutMe.innerHTML = "Me apasiona aprender las últimas y mejores tecnologías, ya sea en el frontend o en el backend. Disfruto creando aplicaciones elegantes y adaptativas además de ser intuitivas para el usuario.";
     skillsTitle.innerHTML = "En lo que me destaco";
     projectsTitle.innerHTML = "mis proyectos";
     project1Title.innerHTML = "nombre del proyecto";
@@ -95,7 +95,7 @@ buttonEsp.addEventListener("click", function() {
   
 buttonEng.addEventListener("click", function(){
     job.innerHTML = "web developer";
-    aboutMe.innerHTML = "my desc in english";
+    aboutMe.innerHTML = "I'm passionate about learning the latest and greatest technologies whether that's the frontend or backend. I enjoy creating sleek and responsive applications in addition to being user-friendly.";
     skillsTitle.innerHTML = "what im good at";
     projectsTitle.innerHTML = "My Work";
     project1Title.innerHTML = "title";
