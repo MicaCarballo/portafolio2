@@ -362,6 +362,14 @@ p {
     color: white;
     text-shadow: 0 0 10px white, 0 0 13px beige, 0 0 15px beige;
 }
+.card-0 {
+   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(./paraCuando.png);
+    
+
+}
 
 .card-1 {
    
