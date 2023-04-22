@@ -375,7 +375,7 @@ p {
    
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(./weatherApp.jpg);
+    background-image: url(./academlo.png);
     
 
 }
@@ -392,7 +392,7 @@ p {
    
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(./PokedexApp.jpg);
+    background-image: url(./socialMica.png);
     
 
 
@@ -400,7 +400,7 @@ p {
 .card-4{
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(./PokedexApp.jpg);
+    background-image: url(./weatherApp.jpg);
 }
 .card-5{
     background-position: center;
@@ -1347,12 +1347,22 @@ form{
 
 
 .second{
-    transition-delay:200ms;
+    transition-delay:150ms;
 }
 
 .third{
-    transition-delay: 400ms;
+    transition-delay: 200ms;
 }
+.fourth{
+    transition-delay: 250ms;
+}
+.fith{
+    transition-delay: 300ms;
+}
+sixth{
+    transition-delay: 350ms;
+}
+
 
 .dark-mode{
     filter: invert(100%);
