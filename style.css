@@ -397,7 +397,16 @@ p {
 
 
 }
-
+.card-4{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(./PokedexApp.jpg);
+}
+.card-5{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(./PokedexApp.jpg);
+}
 
 #stars {
     width: 100vh;
